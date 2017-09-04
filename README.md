@@ -1,4 +1,4 @@
-## Linux Install faster_rcnn in TNT (Matlab by ShaoqingRen):
+## Linux Install faster_rcnn in TNT (Matlab wrapper by ShaoqingRen):
 
 
 #### Step1:  go into your path
