@@ -24,13 +24,16 @@ modify `upgrade_proto.cpp`:
 `$ vim upgrade_proto.cpp`
 after `case V1LayerParameter_LayerType_THRESHLOD:
 	return "Threshold";`
-add:`
+
+add:
+```
 case V1LayerParameter_LayerType_RESHAPE:
 	return "Reshape";
 case V1LayerParameter_LayerType_ROIPOOLING:
 	return "ROIPooling";
 case V1LayerParameter_LayerType_SMOOTH_L1_LOSS:
-	return "SmoothL1Loss"; `
+	return "SmoothL1Loss"; 
+```
 then `Esc` add `:` `wq` return
 
 #### Step5. Install Caffe to local 
