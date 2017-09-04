@@ -1,4 +1,4 @@
-##Linux Install faster_rcnn in TNT (Matlab by ShaoqingRen):
+#Linux Install faster_rcnn in TNT (Matlab by ShaoqingRen):
 
 
 ####Step1:  go into your path
@@ -32,6 +32,7 @@ case V1LayerParameter_LayerType_ROIPOOLING:
 case V1LayerParameter_LayerType_SMOOTH_L1_LOSS:
 	return "SmoothL1Loss"; `
 then `Esc` add `:` `wq` return
+
 ####Step5. Install Caffe to local 
 `$ cd caffe`
 `$ make clean`
@@ -40,19 +41,24 @@ then `Esc` add `:` `wq` return
 `$ make runtest -j16`
 `$ make matcaffe` Install matlab API, become MEX File
 `$ make pycaffe` Install python API
+
 ####Step6: Download Pre-trained Model:
 in MATLAB run:
 `$ run fetch_data/fetch_faster_rcnn_final_model.m`
+
 ####Step7: run faster_rcnn in Matlab:
 `$ run faster_rcnn_build.m`
 and
 `$ run startup.m`
+
 ####Step8: test faster_rcnn:
 `$ run experiments/script_faster_rcnn_demo.m`
+
 ####Step9: Preparation for Training:
 1. `Run fetch_data/fetch_model_ZF.m` to download an ImageNet-pre-trained ZF net.
 2. `Run fetch_data/fetch_model_VGG16.m` to download an ImageNet-pre-trained VGG-16 net.
 3. Download VOC 2007 and 2012 data to ./datasets
+
 ####Step10: Training a model
 1. `Run experiments/script_faster_rcnn_VOC2007_ZF.m` to train a model with ZF net. It runs four steps as follows:
 - Train RPN with conv layers tuned; compute RPN results on the train/test sets.
