@@ -1,9 +1,12 @@
 ##Linux Install faster_rcnn in TNT (Matlab by ShaoqingRen):
 
+
 ####Step1:  go into your path
 `cd /home/Username` 
+
 ####Step2: download faster_rcnn from github
 `$ git clone --recursive https://ShaoqingRen/faster_rcnn.git`
+
 ####Step3:  Compile file `Makefile.config`
 `$ cd external/caffe`
 > If there is no files of caffe, just download Caffe as before (Linux Install Caffe in TNT).
@@ -13,6 +16,7 @@
 modify: `MATLAB_DIR :=` as
 `MATLAB_DIR := /usr/local/MATLAB/R2014a`
 > Tipp: It's better use Matlab_R2014a, I have tryed R2016b, there is many bugs.
+> 
 ####Step4: modify V1LayerParameter Layer type:
 find the file `upgrade_proto.cpp`:
 `$ cd /home/Username/faster_rcnn/external/caffe/src/caffe/util`
