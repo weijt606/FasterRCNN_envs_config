@@ -1,13 +1,13 @@
-#Linux Install faster_rcnn in TNT (Matlab by ShaoqingRen):
+## Linux Install faster_rcnn in TNT (Matlab by ShaoqingRen):
 
 
-####Step1:  go into your path
+#### Step1:  go into your path
 `cd /home/Username` 
 
-####Step2: download faster_rcnn from github
+#### Step2: download faster_rcnn from github
 `$ git clone --recursive https://ShaoqingRen/faster_rcnn.git`
 
-####Step3:  Compile file `Makefile.config`
+#### Step3:  Compile file `Makefile.config`
 `$ cd external/caffe`
 > If there is no files of caffe, just download Caffe as before (Linux Install Caffe in TNT).
 
@@ -17,7 +17,7 @@ modify: `MATLAB_DIR :=` as
 `MATLAB_DIR := /usr/local/MATLAB/R2014a`
 > Tipp: It's better use Matlab_R2014a, I have tryed R2016b, there is many bugs.
 > 
-####Step4: modify V1LayerParameter Layer type:
+#### Step4: modify V1LayerParameter Layer type:
 find the file `upgrade_proto.cpp`:
 `$ cd /home/Username/faster_rcnn/external/caffe/src/caffe/util`
 modify `upgrade_proto.cpp`:
@@ -33,7 +33,7 @@ case V1LayerParameter_LayerType_SMOOTH_L1_LOSS:
 	return "SmoothL1Loss"; `
 then `Esc` add `:` `wq` return
 
-####Step5. Install Caffe to local 
+#### Step5. Install Caffe to local 
 `$ cd caffe`
 `$ make clean`
 `$ make all -j16`
@@ -42,24 +42,27 @@ then `Esc` add `:` `wq` return
 `$ make matcaffe` Install matlab API, become MEX File
 `$ make pycaffe` Install python API
 
-####Step6: Download Pre-trained Model:
+#### Step6: Download Pre-trained Model:
 in MATLAB run:
 `$ run fetch_data/fetch_faster_rcnn_final_model.m`
 
-####Step7: run faster_rcnn in Matlab:
+#### Step7: run faster_rcnn in Matlab:
 `$ run faster_rcnn_build.m`
 and
 `$ run startup.m`
 
-####Step8: test faster_rcnn:
+
+#### Step8: test faster_rcnn:
 `$ run experiments/script_faster_rcnn_demo.m`
 
-####Step9: Preparation for Training:
+
+#### Step9: Preparation for Training:
 1. `Run fetch_data/fetch_model_ZF.m` to download an ImageNet-pre-trained ZF net.
 2. `Run fetch_data/fetch_model_VGG16.m` to download an ImageNet-pre-trained VGG-16 net.
 3. Download VOC 2007 and 2012 data to ./datasets
 
-####Step10: Training a model
+
+#### Step10: Training a model
 1. `Run experiments/script_faster_rcnn_VOC2007_ZF.m` to train a model with ZF net. It runs four steps as follows:
 - Train RPN with conv layers tuned; compute RPN results on the train/test sets.
 - Train Fast R-CNN with conv layers tuned using step-1 RPN proposals; evaluate detection mAP.
