@@ -1,5 +1,5 @@
 ##Linux Install faster_rcnn in TNT (Matlab by ShaoqingRen):
-@(HIWI_tnt)[caffe, DeepLearing, Linux]
+
 ####Step1:  go into your path
 `cd /home/Username` 
 ####Step2: download faster_rcnn from github
